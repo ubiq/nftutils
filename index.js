@@ -53,5 +53,9 @@ function onPageLoad() {
 }
 
 $(document).ready(function () {
+    $("#transferERC721Button").click(function(){
+        transferERC721()
+    });
+
     onPageLoad()
 });

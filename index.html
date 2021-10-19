@@ -19,14 +19,25 @@
     <hr>
     <h3>Contract address - Verify this is correct when confirming transactions</h3>
     <br>
-    <input type="text" id="contractAddress" placeholder="Contract address">
+    <div class="mb-3 row">
+        <label for="contractAddress" class="col-sm-2 col-form-label">Contract Address</label>
+        <input class="col-lg-6" type="text" id="contractAddress" required>
+    </div>
 
     <hr>
     <h3>Transfer - ERC721</h3>
     <br>
-    <input type="text" id="transferERC721ToAddress" placeholder="To Address"/>
-    <input type="text" id="transferERC721TokenId" placeholder="Token ID"/>
-    <a href="#" onclick="transferERC721()" class="btn btn-primary">Transfer</a>
+    <form>
+        <div class="mb-3 row">
+            <label for="transferERC721ToAddress" class="col-sm-2 col-form-label">To Address</label>
+            <input class="col-lg-6" type="text" id="transferERC721ToAddress" required/>
+        </div>
+        <div class="mb-3 row">
+            <label for="transferERC721TokenId" class="col-sm-2 col-form-label">Token ID</label>
+            <input class="col-lg-6" type="number" id="transferERC721TokenId" required/><div id="validationServer05Feedback" class="invalid-feedback">Please provide a valid Token ID</div>
+        </div>
+        <button id="transferERC721Button" class="btn btn-primary">Transfer</button>
+    </form>
 
 </body>
 <script src="https://cdn.ethers.io/lib/ethers-5.4.umd.min.js" type="application/javascript"></script>
