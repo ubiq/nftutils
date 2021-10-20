@@ -55,7 +55,7 @@ async function transferERC721() {
     }
     contract = new ethers.Contract(contractAddress, abiERC721, signer)
     from = await signer.getAddress()
-    contract.transferFrom(from, transferToAddress, transferTokenId)
+    contract["safeTransferFrom(address,address,uint256)"](from, transferToAddress, transferTokenId)
         .then((f) => console.log(f))
 }
 
