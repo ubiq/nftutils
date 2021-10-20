@@ -8,7 +8,6 @@ async function connectWallet() {
         .then(() => {
             provider = new ethers.providers.Web3Provider(window.ethereum);
             signer = provider.getSigner();
-            //contract = new ethers.Contract(burnerAddress, abi, signer)
 
             provider.listAccounts().then((accounts) => {
                 if (accounts.length > 0) {
@@ -32,8 +31,23 @@ async function connectWallet() {
 // Transfer
 async function transferERC721() {
     transferToAddress = $("#transferERC721ToAddress").val();
+    if (!ethers.utils.isAddress(transferToAddress)) {
+        $("#transferERC721ToAddress").removeClass("is-valid").addClass("is-invalid");
+        return
+    } else {
+        $("#transferERC721ToAddress").removeClass("is-invalid").addClass("is-valid");
+    };
     transferTokenId = $("#transferERC721TokenId").val();
+    if (!$.isNumeric(transferTokenId)) {
+        return
+    }
     contractAddress = $("#contractAddress").val();
+    if (!ethers.utils.isAddress(contractAddress)) {
+        $("#contractAddress").removeClass("is-valid").addClass("is-invalid");
+        return
+    } else {
+        $("#contractAddress").removeClass("is-invalid").addClass("is-valid");
+    };
     contract = new ethers.Contract(contractAddress, abiERC721, signer)
     from = await signer.getAddress()
     contract.transferFrom(from, transferToAddress, transferTokenId)

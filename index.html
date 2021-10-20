@@ -22,6 +22,9 @@
     <div class="mb-3 row">
         <label for="contractAddress" class="col-sm-2 col-form-label">Contract Address</label>
         <input class="col-lg-6" type="text" id="contractAddress" required>
+        <div class="invalid-feedback">
+            Invalid address
+        </div>
     </div>
 
     <hr>
@@ -31,10 +34,13 @@
         <div class="mb-3 row">
             <label for="transferERC721ToAddress" class="col-sm-2 col-form-label">To Address</label>
             <input class="col-lg-6" type="text" id="transferERC721ToAddress" required/>
+            <div class="invalid-feedback">
+                Invalid address
+            </div>
         </div>
         <div class="mb-3 row">
             <label for="transferERC721TokenId" class="col-sm-2 col-form-label">Token ID</label>
-            <input class="col-lg-6" type="number" id="transferERC721TokenId" required/><div id="validationServer05Feedback" class="invalid-feedback">Please provide a valid Token ID</div>
+            <input class="col-lg-6" type="number" id="transferERC721TokenId" required/>
         </div>
         <button id="transferERC721Button" class="btn btn-primary">Transfer</button>
     </form>
