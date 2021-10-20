@@ -20,8 +20,14 @@
     <h3>Contract address - Verify this is correct when confirming transactions</h3>
     <br>
     <div class="mb-3 row">
-        <label for="contractAddress" class="col-sm-2 col-form-label">Contract Address</label>
-        <input class="col-lg-6" type="text" id="contractAddress" required>
+    <select class="form-select" id="contractAddressSelect">
+        <option value="" selected>Use Custom Contract Address</option>
+        <option value="0x81f1a6e026d49c2260a8D6D8e14Bca1628c1Df43">nCeption - 0x81f1a6e026d49c2260a8D6D8e14Bca1628c1Df43</option>
+    </select>
+    </div>
+    <div class="mb-3 row">
+        <label for="customContractAddress" class="col-sm-2 col-form-label">Custom Contract Address</label>
+        <input class="col-lg-6" type="text" id="customContractAddress" required>
         <div class="invalid-feedback">
             Invalid address
         </div>

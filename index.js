@@ -41,13 +41,18 @@ async function transferERC721() {
     if (!$.isNumeric(transferTokenId)) {
         return
     }
-    contractAddress = $("#contractAddress").val();
-    if (!ethers.utils.isAddress(contractAddress)) {
-        $("#contractAddress").removeClass("is-valid").addClass("is-invalid");
-        return
+    if (!$("#contractAddressSelect").val() == "") {
+        contractAddress = $("#contractAddressSelect").val()
+        $("#customContractAddress").removeClass("is-invalid").addClass("is-valid").val("");
     } else {
-        $("#contractAddress").removeClass("is-invalid").addClass("is-valid");
-    };
+        contractAddress = $("#customContractAddress").val();
+        if (!ethers.utils.isAddress(contractAddress)) {
+            $("#customContractAddress").removeClass("is-valid").addClass("is-invalid");
+            return
+        } else {
+            $("#customContractAddress").removeClass("is-invalid").addClass("is-valid");
+        };
+    }
     contract = new ethers.Contract(contractAddress, abiERC721, signer)
     from = await signer.getAddress()
     contract.transferFrom(from, transferToAddress, transferTokenId)
