@@ -22,6 +22,7 @@
     <div class="mb-3 row">
     <select class="form-select" id="contractAddressSelect">
         <option value="" selected>Use Custom Contract Address</option>
+        <option value="0x1e1628A35C82169F876F97C9CE5B6533895c2B22">CHIMP - 0x1e1628A35C82169F876F97C9CE5B6533895c2B22</option>
         <option value="0x81f1a6e026d49c2260a8D6D8e14Bca1628c1Df43">nCeption - 0x81f1a6e026d49c2260a8D6D8e14Bca1628c1Df43</option>
     </select>
     </div>
@@ -50,6 +51,19 @@
         </div>
         <button id="transferERC721Button" class="btn btn-primary">Transfer</button>
     </form>
+
+    <hr>
+    <h3>CHIMP - Display SVG</h3>
+    <br>
+    <form>
+        <div class="mb-3 row">
+            <label for="displayCHIMPTokenId" class="col-sm-2 col-form-label">Token ID</label>
+            <input class="col-lg-6" type="number" id="displayCHIMPTokenId" required/>
+        </div>
+        <button id="displayCHIMPTokenIdButton" class="btn btn-primary">Display</button>
+    </form>
+    <br>
+    <img id="displayCHIMPimg" src="" width="512" height="512" style="visibility: hidden;">
 
 </body>
 <script src="https://cdn.ethers.io/lib/ethers-5.4.umd.min.js" type="application/javascript"></script>
