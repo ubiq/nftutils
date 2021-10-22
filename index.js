@@ -66,7 +66,16 @@ async function displayCHIMPTokenId() {
         return
     }
     contract = new ethers.Contract("0x1e1628A35C82169F876F97C9CE5B6533895c2B22", abiCHIMPTokenSVG, signer)
-    const svgString = await contract.tokenSVG(tokenId)
+    let svgString;
+    try {
+        svgString = await contract.tokenSVG(tokenId)
+    } catch(err) {
+        $("#displayCHIMPTokenId").removeClass("is-valid").addClass("is-invalid");
+        $('#displayCHIMPimg').attr('style', 'visibility: hidden;');
+        return
+    }
+
+    $("#displayCHIMPTokenId").removeClass("is-invalid").addClass("is-valid");
     const base64EncodedImage = base64EncodeImageContent(svgString)
     $('#displayCHIMPimg').attr('src', base64EncodedImage).attr('style', 'visibility: visible;');
 }

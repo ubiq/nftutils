@@ -59,8 +59,11 @@
         <div class="mb-3 row">
             <label for="displayCHIMPTokenId" class="col-sm-2 col-form-label">Token ID</label>
             <input class="col-lg-6" type="number" id="displayCHIMPTokenId" required/>
+            <div class="invalid-feedback">
+                Non-existent token ID
+            </div>
         </div>
-        <button id="displayCHIMPTokenIdButton" class="btn btn-primary">Display</button>
+        <button id="displayCHIMPTokenIdButton" class="btn btn-primary" type="button">Display</button>
     </form>
     <br>
     <img id="displayCHIMPimg" src="" width="512" height="512" style="visibility: hidden;">
