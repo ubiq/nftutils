@@ -85,6 +85,28 @@
     <br>
     <img id="displayGB89img" src="" width="500" height="500" style="visibility: hidden;">
 
+    <hr>
+    <h3>GB89 - Update Screen</h3>
+    <br>
+    <form>
+        <div class="mb-3 row">
+            <label for="updateGB89TokenId" class="col-sm-2 col-form-label">Token ID</label>
+            <input class="col-lg-6" type="number" id="updateGB89TokenId" required/>
+            <div class="invalid-feedback">
+                Non-existent token ID
+            </div>
+        </div>
+        <div class="mb-3 row">
+            <label for="updateGB89LeftPart" class="col-sm-2 col-form-label">Left Part</label>
+            <input class="col-lg-6" type="number" id="updateGB89LeftPart" required/>
+        </div>
+        <div class="mb-3 row">
+            <label for="updateGB89RightPart" class="col-sm-2 col-form-label">Right Part</label>
+            <input class="col-lg-6" type="number" id="updateGB89RightPart" required/>
+        </div>
+        <button id="updateGB89TokenIdButton" class="btn btn-primary" type="button">Update Screen</button>
+    </form>
+
 </body>
 <script src="https://cdn.ethers.io/lib/ethers-5.4.umd.min.js" type="application/javascript"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"
