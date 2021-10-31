@@ -86,6 +86,13 @@ async function displayGB89TokenId() {
         return
     }
     contract = new ethers.Contract("0x0e2fbBA88C5E526f5160Af1b9Ad79a20130b2216", abiERC721, signer)
+    try {
+        await contract.ownerOf(tokenId)
+    } catch(err) {
+        $("#displayGB89TokenId").removeClass("is-valid").addClass("is-invalid");
+        $('#displayGB89img').attr('style', 'visibility: hidden;');
+        return
+    }
     let uriString;
     try {
         uriString = await contract.tokenURI(tokenId)
