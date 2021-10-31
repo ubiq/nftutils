@@ -77,7 +77,30 @@ async function displayCHIMPTokenId() {
 
     $("#displayCHIMPTokenId").removeClass("is-invalid").addClass("is-valid");
     const base64EncodedImage = base64EncodeImageContent(svgString)
-    $('#displayCHIMPimg').attr('src', base64EncodedImage).attr('style', 'visibility: visible;');
+    $('#displayCHIMPimg').attr('src', base64EncodedImage).attr('style', 'visibility: visible;').attr('width', 512).attr('height', 512);
+}
+
+async function displayGB89TokenId() {
+    tokenId = $("#displayGB89TokenId").val();
+    if (!$.isNumeric(tokenId)) {
+        return
+    }
+    contract = new ethers.Contract("0x0e2fbBA88C5E526f5160Af1b9Ad79a20130b2216", abiERC721, signer)
+    let uriString;
+    try {
+        uriString = await contract.tokenURI(tokenId)
+    } catch(err) {
+        $("#displayGB89TokenId").removeClass("is-valid").addClass("is-invalid");
+        $('#displayGB89img').attr('style', 'visibility: hidden;');
+        return
+    }
+
+    $("#displayGB89TokenId").removeClass("is-invalid").addClass("is-valid");
+    let base64 = uriString.split(',')[1]
+    const decoded = JSON.parse(atob(base64))
+    base64 = decoded.image.split(',')[1]
+    const base64EncodedImage = base64EncodeImageContent(atob(base64))
+    $('#displayGB89img').attr('src', base64EncodedImage).attr('style', 'visibility: visible;').attr('width', 500).attr('height', 500);
 }
 
 function base64EncodeImageContent(svgString) {
@@ -102,6 +125,9 @@ $(document).ready(function () {
     });
     $("#displayCHIMPTokenIdButton").click(function(){
         displayCHIMPTokenId()
+    });
+    $("#displayGB89TokenIdButton").click(function(){
+        displayGB89TokenId()
     });
 
     onPageLoad()
