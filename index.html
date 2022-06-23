@@ -54,6 +54,22 @@
     </form>
 
     <hr>
+    <h3>Owner Of - ERC721</h3>
+    <br>
+    <form>
+        <div class="mb-3 row">
+            <label for="ownerOfTokenId" class="col-sm-2 col-form-label">Token ID</label>
+            <input class="col-lg-6" type="number" id="ownerOfTokenId" required/>
+            <div class="invalid-feedback">
+                Non-existent token ID
+            </div>
+        </div>
+        <button id="ownerOfTokenIdButton" class="btn btn-primary" type="button">Owner</button>
+    </form>
+    <br>
+    <span id="ownerOfTokenIdResult" src="" style="visibility: hidden;"></span>
+
+    <hr>
     <h3>CHIMP - Display SVG</h3>
     <br>
     <form>

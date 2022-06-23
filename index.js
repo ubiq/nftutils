@@ -61,6 +61,36 @@ async function transferERC721() {
         .then((f) => console.log(f))
 }
 
+async function ownerOf() {
+    tokenId = $("#ownerOfTokenId").val();
+    if (!$.isNumeric(tokenId)) {
+        return
+    }
+    if (!$("#contractAddressSelect").val() == "") {
+        contractAddress = $("#contractAddressSelect").val()
+        $("#customContractAddress").removeClass("is-invalid").addClass("is-valid").val("");
+    } else {
+        contractAddress = $("#customContractAddress").val();
+        if (!ethers.utils.isAddress(contractAddress)) {
+            $("#customContractAddress").removeClass("is-valid").addClass("is-invalid");
+            return
+        } else {
+            $("#customContractAddress").removeClass("is-invalid").addClass("is-valid");
+        };
+    }
+    contract = new ethers.Contract(contractAddress, abiERC721, signer)
+    try {
+        owner = await contract.ownerOf(tokenId)
+    } catch(err) {
+        $("#ownerOfTokenId").removeClass("is-valid").addClass("is-invalid");
+        $('#ownerOfTokenIdResult').attr('style', 'visibility: hidden;');
+        return
+    }
+
+    $("#ownerOfTokenId").removeClass("is-invalid").addClass("is-valid");
+    $('#ownerOfTokenIdResult').text(owner).attr('style', 'visibility: visible;');
+}
+
 async function displayCHIMPTokenId() {
     tokenId = $("#displayCHIMPTokenId").val();
     if (!$.isNumeric(tokenId)) {
@@ -155,6 +185,9 @@ function onPageLoad() {
 $(document).ready(function () {
     $("#transferERC721Button").click(function(){
         transferERC721()
+    });
+    $("#ownerOfTokenIdButton").click(function(){
+        ownerOf()
     });
     $("#displayCHIMPTokenIdButton").click(function(){
         displayCHIMPTokenId()
