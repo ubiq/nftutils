@@ -4,7 +4,7 @@
 <head>
     <title>NFT Utilities</title>
     <link href='https://fonts.googleapis.com/css?family=Open Sans:400,700' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
 
 <body class="container">
@@ -26,6 +26,7 @@
         <option value="0xc3D585288D35215754e970A23DD8DE37a08e71B7">Cryptsters - 0xc3D585288D35215754e970A23DD8DE37a08e71B7</option>
         <option value="0x0e2fbBA88C5E526f5160Af1b9Ad79a20130b2216">GB89 - 0x0e2fbBA88C5E526f5160Af1b9Ad79a20130b2216</option>
         <option value="0x81f1a6e026d49c2260a8D6D8e14Bca1628c1Df43">nCeption - 0x81f1a6e026d49c2260a8D6D8e14Bca1628c1Df43</option>
+        <option value="0x0EC8ce8FCbA64592286A2b3f31c0d4a5e54Fd309">Poster ERC1155 - 0x0EC8ce8FCbA64592286A2b3f31c0d4a5e54Fd309</option>
     </select>
     </div>
     <div class="mb-3 row">
@@ -35,6 +36,24 @@
             Invalid address
         </div>
     </div>
+
+    <hr>
+    <h3>Transfer - ERC1155 - Poster</h3>
+    <br>
+    <form>
+        <div class="mb-3 row">
+            <label for="transferERC1155ToAddress" class="col-sm-2 col-form-label">To Address</label>
+            <input class="col-lg-6" type="text" id="transferERC1155ToAddress" required/>
+            <div class="invalid-feedback">
+                Invalid address
+            </div>
+        </div>
+        <div class="mb-3 row">
+            <label for="transferERC1155TokenId" class="col-sm-2 col-form-label">Token ID</label>
+            <input class="col-lg-6" type="number" id="transferERC1155TokenId" required/>
+        </div>
+        <button id="transferERC1155Button" class="btn btn-primary">Transfer</button>
+    </form>
 
     <hr>
     <h3>Transfer - ERC721</h3>
@@ -125,8 +144,8 @@
     </form>
 
 </body>
-<script src="https://cdn.ethers.io/lib/ethers-5.6.umd.min.js" type="application/javascript"></script>
-<script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ethers/5.8.0/ethers.umd.min.js" type="application/javascript"></script>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 <script src="index.js" type="text/javascript"></script>
 
 </html>
